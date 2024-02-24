@@ -1,11 +1,13 @@
-from django.shortcuts import render
 from .models import Post
-from django.http import HttpResponse
+from django.views.generic import ListView, TemplateView, DeleteView
 from django.urls import reverse_lazy
-from django.views.generic import DeleteView
 
-def Hello (request): 
-    return HttpResponse('Hello, World!')
+class HomePageView(ListView):
+    model= Post  
+    template_name="home.html"
+
+class AboutPageView(TemplateView):
+    template_name="about.html"
 
 class BlogDeleteView(DeleteView):
     model=Post
