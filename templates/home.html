@@ -5,17 +5,14 @@
         <div>
             {% for post in post_list %}
 
-            <div class="card m-5" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{post.title}}</h5>
-                <a href="{% url 'post_delete' post.pk %}" class="btn btn-primary">view more</a>
-                </div>
-            </div>
+        <div class="post-entry">
+            <a href="{% url 'post_detail' post.pk %}">
+            <h2>{{post.title}}</h2>
+            </a>
+        </div>
 
     {% endfor %}
         </div>
     </div>
-
-
 
     {% endblock content %}
