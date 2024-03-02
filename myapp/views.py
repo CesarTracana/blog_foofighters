@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
-from django.views.generic.edit import CreateView 
 from .models import Post
 
 def Hello (request): 
@@ -17,9 +16,9 @@ class HomePageView(ListView):
 class BlogCreateView(CreateView):
     model= Post
     template_name= "new_post.html"
-    fields=["title", "text"]
+    fields=["title", "body", "author"]
 
-class BlogCreateView(CreateView):
-    model= Post
-    template_name= "new_post.html"
-    fields=["title", "text"]
+class BlogDetailView(DetailView):
+    model=Post
+    template_name="post_detail.html"
+
